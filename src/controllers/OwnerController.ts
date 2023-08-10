@@ -1,5 +1,4 @@
 import { Owner } from "entities/Owner";
-
 import { Request, Response } from 'express'
 import ServiceOwner from "../services/Owner/ServiceOwner";
 
@@ -14,10 +13,9 @@ public async  postOwner(req :Request,res: Response) {
     }
 }
 public async  getAllOwner(req : Request,res: Response) {
-    
     try {
         const response = await ServiceOwner.showAllOwner()
-        res.status(200).json(response)
+        return res.status(200).json(response)
     } catch (error) {
         throw new Error(error)
     }

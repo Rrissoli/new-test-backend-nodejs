@@ -1,16 +1,12 @@
 import { Owner } from "entities/Owner";
 import {v4 as uuid} from 'uuid'
-const owners = []
+import ownerModel from "../../models/OwnerModel";
+
 
 class ServiceOwner {
     public async  createOwner(owner:Owner) {
         try {
-            owner = {
-                id:uuid(),
-                name:owner.name,
-                email:owner.email
-            }
-            const response = owners.push(owner)
+            const response = await ownerModel.create(owner)
             return response;
         } catch (error) {
             throw new Error(error)
@@ -18,6 +14,7 @@ class ServiceOwner {
     }
     public async  showAllOwner() {
         try {
+            const owners = await ownerModel.find()
             return owners
         } catch (error) {
             throw new Error(error)

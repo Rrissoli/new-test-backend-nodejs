@@ -8,6 +8,6 @@ const ownerSchema = new mongoose.Schema(
     }
 )
 
-const owner = mongoose.model('Owner')
+const owner = mongoose.model('Owner', ownerSchema)
 
 export default owner
