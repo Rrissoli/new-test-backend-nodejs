@@ -15,11 +15,22 @@ class ServiceProduct {
         } catch (error) {
             throw new Error(error)
         }
-    } 
+    }
     public async showAllProducts() {
         try {
-            
+
             return products
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+    public async findOneById(id: string) {
+        try {
+            let productFound = await products.find(item => item.id == id)
+            if (!productFound) {
+                return { message: 'Produto não encontrado' }
+            }
+            return productFound
         } catch (error) {
             throw new Error(error)
         }
