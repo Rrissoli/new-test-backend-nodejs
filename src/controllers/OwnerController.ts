@@ -1,11 +1,11 @@
 import { Owner } from "entities/Owner";
-import { createOwner, showAllOwner } from "../services/Owner/ServiceOwner";
+import ServiceOwner from "../services/Owner/ServiceOwner";
 
  class OwnerController {
     
 public async  postOwner(req,res) {
     try {
-        const response = await createOwner(req.body)
+        const response = await ServiceOwner.createOwner(req.body)
         res.status(201).send("Owner create")
     } catch (error) {
         throw new Error(error)
@@ -13,7 +13,7 @@ public async  postOwner(req,res) {
 }
 public async  getAllOwner(req,res) {
     try {
-        const response = await showAllOwner()
+        const response = await ServiceOwner.showAllOwner()
         res.status(200).json(response)
     } catch (error) {
         throw new Error(error)
