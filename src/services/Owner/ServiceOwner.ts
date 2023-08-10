@@ -20,5 +20,14 @@ class ServiceOwner {
             throw new Error(error)
         }
     }
+    public async  findOwnerById(id:string) {
+        try {
+            
+            const owners = await ownerModel.findById(id)
+            return owners
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
 }
 export default new ServiceOwner()

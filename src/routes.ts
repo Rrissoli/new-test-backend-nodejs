@@ -8,6 +8,7 @@ const route = Router()
 
 route.post("/owner", OwnerController.postOwner)
 route.get("/owner", OwnerController.getAllOwner)
+route.get("/owner/:id", OwnerController.getOneOwnerById)
 
 route.post("/product/:idOwner", ProductsController.postProduct)
 route.get("/product", ProductsController.getAllProducts)
