@@ -11,7 +11,7 @@ class ServiceOwner {
                 email:owner.email
             }
             const response = owners.push(owner)
-            return true;
+            return response;
         } catch (error) {
             throw new Error(error)
         }

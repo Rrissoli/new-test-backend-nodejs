@@ -7,7 +7,7 @@ import ServiceOwner from "../services/Owner/ServiceOwner";
     
 public async  postOwner(req :Request,res: Response) {
     try {
-        const response = await ServiceOwner.createOwner(req.body)
+        const response = await ServiceOwner.createOwner(req.body )
         res.status(201).send("Owner create")
     } catch (error) {
         throw new Error(error)
