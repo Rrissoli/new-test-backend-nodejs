@@ -1,7 +1,9 @@
 import { Owner } from "entities/Owner";
-import { createOwner, showAllOwner } from "../services/crudOwner/createOwner";
+import { createOwner, showAllOwner } from "../services/Owner/ServiceOwner";
 
-export async function postOwner(req,res) {
+ class OwnerController {
+    
+public async  postOwner(req,res) {
     try {
         const response = await createOwner(req.body)
         res.status(201).send("Owner create")
@@ -9,7 +11,7 @@ export async function postOwner(req,res) {
         throw new Error(error)
     }
 }
-export async function getOwner(req,res) {
+public async  getAllOwner(req,res) {
     try {
         const response = await showAllOwner()
         res.status(200).json(response)
@@ -17,3 +19,6 @@ export async function getOwner(req,res) {
         throw new Error(error)
     }
 }
+}
+export   default  new OwnerController()
+
