@@ -1,12 +1,12 @@
 import { Product } from "entities/Product";
-import {v4 as uuid} from "uuid"
+import { v4 as uuid } from "uuid"
 const products = []
 class ServiceProduct {
-    public async  createProduct(product:Product, idOwner:string) {
+    public async createProduct(product: Product, idOwner: string) {
         try {
             const newProduct = {
-                id:uuid(),
-                idOwner:idOwner,
+                id: uuid(),
+                idOwner: idOwner,
                 dataCriacao: new Date(),
                 ...product
             }
@@ -15,6 +15,15 @@ class ServiceProduct {
         } catch (error) {
             throw new Error(error)
         }
+    } 
+    public async showAllProducts() {
+        try {
+            
+            return products
+        } catch (error) {
+            throw new Error(error)
+        }
     }
+
 }
 export default new ServiceProduct()
