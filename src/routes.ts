@@ -9,6 +9,8 @@ const route = Router()
 route.post("/owner", OwnerController.postOwner)
 route.get("/owner", OwnerController.getAllOwner)
 route.get("/owner/:id", OwnerController.getOneOwnerById)
+route.put("/owner/:id", OwnerController.updateOwner)
+route.delete("/owner/:id", OwnerController.deleteOwner)
 
 route.post("/product/:idOwner", ProductsController.postProduct)
 route.get("/product", ProductsController.getAllProducts)
